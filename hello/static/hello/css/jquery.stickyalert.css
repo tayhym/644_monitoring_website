@@ -1,0 +1,20 @@
+* { margin:0; padding:0; }
+
+div.alert-box {
+display: block;
+padding: 6px 7px;
+color:#a94442;
+text-align: center;
+position: fixed;
+width:100%;
+font-family: 'Open Sans', sans-serif;
+}
+
+div.alert-box a {
+  color:#B64926;
+  text-decoration:none;
+}
+
+.alert-box a.close { position: absolute; right: 15px; top: 0; font-size: 18px; opacity: 0.8; padding: 4px; text-decoration:none; }
+
+.alert-box a.close:hover,.alert-box a.close:focus { opacity: 0.4; }
