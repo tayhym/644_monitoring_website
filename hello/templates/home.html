@@ -12,16 +12,33 @@
 </head>
 <body>
 	<h1>Monitoring Status</h1>
+  <!-- Nav tabs -->
   <ul class="nav nav-tabs" role="tablist">
-    <li class="active"><a href="#" id="tab_id">Occupied Classrooms</a></li>
-    <li><a href="#" id="tab_id">Empty Classroom</a>
-      <img src="{% static "hello/images/fence.jpg" %}" alt="My image" class="img-circle"/>
-    </li>
+    <li role="presentation" class="active"><a href="#occupied" role="tab" data-toggle="tab">Occupied Classrooms</a></li>
+    <li role="presentation"><a href="#empty" role="tab" data-toggle="tab">Empty Classrooms</a></li>
   </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div class='col-md-1' class='buffer'></div>
+    <div role="tabpanel" class="tab-pane active" id="occupied">
+      <br><br>
+      <div class='col-md-1' class='buffer'></div>
+      <div class='col-md-4' class='imageDisp'>
+        <img src="{% static "hello/images/server_10.jpg" %}" alt="My image" class="img-circle"/>
+      </div>
+      <div class='col-md-4' class='buffer'></div>
+      </div>
+    
+    <div role="tabpanel" class="tab-pane" id="empty">
+    </div>
+  </div>
   
 
 </div>
   	<script src="https://code.jquery.com/jquery.js"></script>
-	  <script src= "{% static 'hello/js/interactive.js' %}" type="text/javascript"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+	  <script src= "{% static 'hello/js/tabs_interactive.js' %}" type="text/javascript"></script>
+
 </body>
 </html>
