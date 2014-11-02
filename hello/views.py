@@ -2,6 +2,9 @@ import os
 from django.shortcuts import render
 from django.http import HttpResponse
 
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 from .models import Greeting
 import requests
 
@@ -23,8 +26,29 @@ def db(request):
     return render(request, 'db.html', {'greetings': greetings})
 
 def home(request):
-	img = 'img_source'
+    img = 'img'
+    # upload to cloudinary the image 
+    img = cloudinary.uploader.upload("/Users/matthew/Documents/18-644/Team_Webpage/python-getting-started/hello/static/hello/images/server_10.jpg", public_id = 'server_img')
+    print(img['url'])  # returns dictionary
+    analytics = cloudinary.api.resource("server_img",faces=True)
+    print(analytics['faces'])
 
-	return render(request, 'home.html', {'img_source':img})
+    img2 = cloudinary.uploader.upload(
+    "/Users/matthew/Documents/18-644/Team_Webpage/python-getting-started/hello/static/hello/images/server_10.jpg",      
+    public_id = 'server_blurred', 
+    crop = 'limit',
+    width = 2000,
+    height = 2000,
+    eager = [
+    { 'width': 200, 'height': 200, 
+      'crop': 'thumb', 'gravity': 'face',
+      'radius': 20, 'effect': 'pixelate_faces' },
+    { 'width': 100, 'height': 150, 
+      'crop': 'fit', 'format': 'png' }
+    ],                                     
+    tags = ['special', 'for_homepage']
+    )
+    print(img2['url'])
+    return render(request, 'home.html', {'img':img})
 	
 

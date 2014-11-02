@@ -12,6 +12,11 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 import os
 import dj_database_url
 
+
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
+
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 
@@ -103,3 +108,14 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
+
+cloudinary.config(
+    cloud_name="hrm0iutr6",
+    api_key = "111233746272417",
+    api_secret = "WsKPnCA1ymqRcRfm3pBDoYJ8dtk")
+
+# import json
+# creds_file = open(os.environ["CRED_FILE"], 'r')
+# creds = json.loads(creds_file.read())
+# os.environ["CLOUDINARY_URL"] = creds["CLOUDINARY"]["CLOUDINARY_URL"]
+
