@@ -6,7 +6,8 @@ do
     echo 'searching for new photos to push'
     git add . 
     git commit -m 'photo_upload'
+    git push
     git push heroku master
-    sleep 60
+    sleep 90
 
 done
