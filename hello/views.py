@@ -29,8 +29,10 @@ def home(request):
     img = 'img'
     # upload to cloudinary the image 
     # img = cloudinary.uploader.upload("/Users/matthew/Documents/18-644/Team_Webpage/python-getting-started/hello/static/hello/images/server_10.jpg", public_id = 'server_img')
-    img_path = os.getcwd() + "/hello/static/hello/images/server_10.jpg"
-    print(os.getcwd())
+    # img_path = os.getcwd() + "/hello/static/hello/images/server_10.jpg"
+    img_path = "/app/hello/static/hello/images/server_10.jpg"
+
+    print('testing new image path /app'
     img = cloudinary.uploader.upload(img_path, public_id = 'server_img')
     print(os.getcwd())
     print(img['url'])  # returns dictionary
