@@ -32,7 +32,7 @@ def home(request):
     # img_path = os.getcwd() + "/hello/static/hello/images/server_10.jpg"
     img_path = "/app/hello/static/hello/images/server_10.jpg"
 
-    print('testing new image path /app'
+    print('testing new image path /app');
     img = cloudinary.uploader.upload(img_path, public_id = 'server_img')
     print(os.getcwd())
     print(img['url'])  # returns dictionary
