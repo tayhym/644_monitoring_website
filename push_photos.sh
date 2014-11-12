@@ -8,6 +8,6 @@ do
     git commit -m 'photo_upload'
     git push
     git push heroku master
-    sleep 90
+    sleep 10
 
 done
