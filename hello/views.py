@@ -37,6 +37,7 @@ def home(request):
     print(img['url'])  # returns dictionary
     analytics = cloudinary.api.resource("server_img",faces=True)
     print(analytics['faces'])
+    num_people = len(analytics['faces']);
 
     img2 = cloudinary.uploader.upload(
     img_path,      
@@ -54,6 +55,10 @@ def home(request):
     tags = ['special', 'for_homepage']
     )
     print(img2['url'])
-    return render(request, 'home.html', {'img':img})
+    context = {'img':img['url'], 'num_people':num_people}
+    context['num_people'] = num_people
+    print(context)
+    print(context['num_people'])
+    return render(request, 'home.html', context)
 	
 
