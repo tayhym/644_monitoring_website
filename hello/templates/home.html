@@ -27,7 +27,8 @@
       <br><br>
       <div class='col-md-1' class='buffer'></div>
       <div class='col-md-4' class='imageDisp'>
-        {% if %}
+        {% if num_people %}
+        
         <img src="{% static "hello/images/server_10.jpg" %}" alt="My image" class="img-circle"/>
         <legend>Location: Wean Classroom</legend>
         <legend>Estimated Population: {{num_people}} </legend>
