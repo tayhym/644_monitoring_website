@@ -54,6 +54,11 @@ def home(request):
     ],                                     
     tags = ['special', 'for_homepage']
     )
+
+    img_string = <img src="{% static "hello/images/server_10.jpg" %}" alt="My image" class="img-circle"/>
+        <legend>Location: Wean Classroom</legend>
+        <legend>Estimated Population: {{num_people}} </legend>
+        
     print(img2['url'])
     context = {'img':img['url'], 'num_people':num_people}
     context['num_people'] = num_people
