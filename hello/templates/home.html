@@ -27,14 +27,21 @@
       <br><br>
       <div class='col-md-1' class='buffer'></div>
       <div class='col-md-4' class='imageDisp'>
-        <img src="{% static "hello/images/server_10.jpg" %}" alt="My image" class="img-circle"/>
-        <legend>Location: Wean Classroom</legend>
-        <legend>Estimated Population: {{num_people}} </legend>
+          {% if num_people > 0 %}
+          <img src={{img}} alt="My image" class="img-circle"/>
+          <legend>Location: Wean Classroom</legend>
+          <legend>Estimated Population: {{num_people}} </legend>
+          {% endif %}
       </div>
       <div class='col-md-4' class='buffer'> </div>
     </div>
     
     <div role="tabpanel" class="tab-pane" id="empty">
+        {% if num_people == 0 %}
+          <img src={{img}} alt="My image" class="img-circle"/>
+          <legend>Location: Wean Classroom</legend>
+          <legend>Estimated Population: {{num_people}} </legend>
+        {% endif %}
     </div>
   </div>
 </div>

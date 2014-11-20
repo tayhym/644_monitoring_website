@@ -48,18 +48,25 @@ def home(request):
     eager = [
     { 'width': 200, 'height': 200, 
       'crop': 'thumb', 'gravity': 'face',
-      'radius': 20, 'effect': 'pixelate_faces' },
-    { 'width': 100, 'height': 150, 
-      'crop': 'fit', 'format': 'png' }
+      'radius': 20, 'effect': 'pixelate_faces'},
     ],                                     
     tags = ['special', 'for_homepage']
     )
 
-    img_string = '<img src="{% static "hello/images/server_10.jpg" %}" alt="My image" class="img-circle"/> <legend>Location: Wean Classroom</legend> <legend>Estimated Population: {{num_people}} </legend>'
-
     print(img2['url'])
-    context = {'img':img['url'], 'num_people':num_people}
+    img_string = img2['url'].encode('ascii')
+    print(img_string)
+   
+    idx = str.find(img_string,'upload/')
+    print(idx)
+    print(img_string[0:idx])
+    img_blurred = img_string[0:idx] + 'upload/e_pixelate_faces/' + img_string[idx+7:len(img_string)]
+    print(img_blurred)
+    context = {'img':img_blurred, 'num_people':num_people}
     context['num_people'] = num_people
+    if (num_people==0):
+        context['empty'] = 1;
+
     print(context)
     print(context['num_people'])
     return render(request, 'home.html', context)
