@@ -8,5 +8,5 @@
 	git commit -m 'photo_upload' 
 	git push 
 	git push heroku master
-	sleep 60000
+	sleep 60
 goto loop
