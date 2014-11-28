@@ -63,8 +63,16 @@ def home(request):
     img_blurred = img_string[0:idx] + 'upload/e_pixelate_faces/' + img_string[idx+7:len(img_string)]
     print(img_blurred)
     context = {'img':img_blurred, 'num_people':num_people}
-    context['num_people'] = num_people
-    if (num_people==0):
+    
+    file_path = os.getcwd() + "/hello/static/hello/images/num.txt"
+    file = open(file_path,'r')
+    extra_people_str = file.read()
+    extra_people = int(extra_people_str)
+    print('extra_people: '+ extra_people_str)
+
+    context['num_people'] = num_people + extra_people
+
+    if (context['num_people']==0):
         context['empty'] = 1;
 
     print(context)
